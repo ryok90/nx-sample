@@ -4,10 +4,22 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "19.5.4",
+    "@nx/rspack": "^19.2.0",
     "@nx/workspace": "19.5.4",
-    "nx": "19.5.4"
-  }
+    "@rspack/cli": "^0.7.2",
+    "@rspack/core": "^0.7.2",
+    "@rspack/dev-server": "^0.7.2",
+    "@rspack/plugin-minify": "^0.6.1",
+    "@rspack/plugin-react-refresh": "^0.6.1",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "nx": "19.5.4",
+    "prettier": "^2.6.2",
+    "react-refresh": "~0.14.0",
+    "typescript": "~5.5.2"
+  },
+  "dependencies": {}
 }
