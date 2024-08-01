@@ -1,0 +1,45 @@
+{
+  "name": "remote",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rspack-mf/remote/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/rspack-mf/remote",
+        "main": "apps/rspack-mf/remote/src/main.tsx",
+        "tsConfig": "apps/rspack-mf/remote/tsconfig.app.json",
+        "rspackConfig": "apps/rspack-mf/remote/rspack.config.js",
+        "assets": ["apps/rspack-mf/remote/src/favicon.ico", "apps/rspack-mf/remote/src/assets"]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "options": {
+        "buildTarget": "remote:build:development",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "remote:build:production"
+        }
+      }
+    }
+  }
+}

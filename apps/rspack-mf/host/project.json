@@ -1,0 +1,48 @@
+{
+  "name": "host",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rspack-mf/host/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/rspack-mf/host",
+        "main": "apps/rspack-mf/host/src/main.tsx",
+        "tsConfig": "apps/rspack-mf/host/tsconfig.app.json",
+        "rspackConfig": "apps/rspack-mf/host/rspack.config.js",
+        "assets": [
+          "apps/rspack-mf/host/src/favicon.ico",
+          "apps/rspack-mf/host/src/assets"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "options": {
+        "buildTarget": "host:build:development",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "host:build:production"
+        }
+      }
+    }
+  }
+}
