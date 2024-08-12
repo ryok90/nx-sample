@@ -42,5 +42,26 @@
         "targetName": "lint"
       }
     }
-  ]
+  ],
+  "release": {
+    "projects": ["libs/*"],
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github",
+        "file": false
+      }
+    },
+    "version": {
+      "generatorOptions": {
+        "currentVersionResolver": "registry",
+        "skipLockFileUpdate": true
+      },
+      "git": {
+        "commit": false,
+        "stageChanges": false,
+        "tag": false
+      },
+      "preVersionCommand": "npx nx run-many -t build -p libs/*"
+    }
+  }
 }
